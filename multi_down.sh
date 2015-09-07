@@ -21,9 +21,12 @@ wget $link -O $file
 
 cat $file > $bak_file
 
+# add \n before < and >
 sed -i -e 's/</\n</g' $bak_file
 sed -i -e 's/>/\n>/g' $bak_file
 
+# grep "href" "<a" "/$"
+# cut "\""
 url_list=`cat $bak_file | grep "href*=*\"" | grep "<a" | cut -d "\"" -f 2 | grep "/$" | grep -v "\.\."`
 
 for url in $url_list
