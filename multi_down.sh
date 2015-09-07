@@ -1,6 +1,7 @@
 #!/bin/bash
 
 link="${1:?link is required!}"
+des="${2:?des is required!}"
 
 echo $link
 if [ "$link" == "" ];
@@ -31,4 +32,4 @@ do
     i=`expr $i+1`
 done
 
-echo ${whole_url_list[@]}
+echo ${whole_url_list[@]} | xargs -n 1 -P 8 ./single_down.sh "$des"
