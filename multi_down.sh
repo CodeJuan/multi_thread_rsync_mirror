@@ -18,6 +18,7 @@ rm -f *.html
 
 # get index.html
 wget $link -O $file
+# if the link is https..........
 
 cat $file > $bak_file
 
